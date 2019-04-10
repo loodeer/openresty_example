@@ -22,6 +22,7 @@ end
 ngx.say("headers end","<br/>")
 ngx.say("<br/>")
 
+ngx.say("====================")
 ngx.say("uri args begin","<br/>")
 local uri_args = ngx.req.get_uri_args()
 for k,v in pairs(uri_args) do
@@ -31,6 +32,22 @@ for k,v in pairs(uri_args) do
         ngx.say(k,":",v,"<br/>")
     end
 end
-ngx.say("uri args end","<br/>")
+ngx.say("uri args end ==============","<br/>")
 ngx.say("<br/>")
 
+ngx.req.read_body()
+ngx.say("====================")
+ngx.say("post args begin","<br/>")
+local post_args = ngx.req.get_post_args()
+for k,v in pairs(post_args) do
+    if type(v) == "table" then
+        ngx.say(k,":",table.concat(v,","),"<br/>")
+    else
+        ngx.say(k,":",v,"<br/>")
+    end
+end
+ngx.say("post args end =============","<br/>")
+ngx.say("ngx.req.http_version:",ngx.req.http_version(),"<br/>")
+ngx.say("ngx.req.get_method:",ngx.req.get_method(),"<br/>")
+ngx.say("ngx.req.raw_header:",ngx.req.raw_header(),"<br/>")
+ngx.say("ngx.req.get_body_data:",ngx.req.get_body_data(),"<br/>")
