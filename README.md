@@ -13,3 +13,5 @@ curl -v a.com/lua_response_1
 curl -v a.com/lua_response_2
 
 curl a.com/lua_other?sql=select%20*%20from%20`order`%20where%20\"qq=12345%40qq.com\"
+
+curl a.com/lua_shared_dict
