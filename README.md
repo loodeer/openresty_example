@@ -17,3 +17,5 @@ curl a.com/lua_other?sql=select%20*%20from%20`order`%20where%20\"qq=12345%40qq.c
 curl a.com/lua_shared_dict
 
 curl a.com/lua  
+
+curl 'a.com/lua_set_1?i=1&j=3'
